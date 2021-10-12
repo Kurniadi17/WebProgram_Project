@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Session;
+use Cookie;
 
 class CustomAuthController extends Controller
 {
@@ -19,12 +20,14 @@ class CustomAuthController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required|email|unique:users',
-            'password'=>'required|min:5|max:12'
+            'password'=>'required|min:5|max:20',
+            'address'=>'required|min:4|max:95'
         ]);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->address = $request->address;
         $res = $user->save();
         if ($res) {
             return back()->with('success','You have registered successfully');
@@ -38,10 +41,15 @@ class CustomAuthController extends Controller
             'password'=> 'required|min:5|max:12'
         ]);
         $user = User::where('email','=',$request->email)->first();
+
         if($user){
             if(Hash::check($request->password, $user->password))
             {
                 $request->session()->put('loginId',$user->id);
+                if($request->has('remember_me')){
+                    Cookie::queue('userEmail', $request->email, 60);
+                    Cookie::queue('userPwd', $request->password, 60);
+                }
                 return redirect('dashboard');
             }else{
                 return back()->with('fail', 'Password not matches.');

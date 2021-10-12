@@ -42,6 +42,13 @@
                         <input type="password" class="form-control" placeholder="Enter Password" name="password" value="">
                         <span class="text-danger">@error('password'){{$message}} @enderror</span>
                     </div>
+                    <div class="form-group">
+                        <label for="password">
+                            Address
+                        </label>
+                        <input type="text" class="form-control" placeholder="Enter your address" name="address" value="">
+                        <span class="text-danger">@error('address'){{$message}} @enderror</span>
+                    </div>
                     <div class="form-group mt-3">
                         <button class="btn btn-block btn-primary" type="submit">Register</button>
                     </div>

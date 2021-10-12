@@ -25,15 +25,31 @@
                         <label for="email">
                             Email
                         </label>
-                        <input type="text" class="form-control" placeholder="Enter Email" name="email" value="{{old('email')}}">
+                        <input type="text" class="form-control" placeholder="Enter Email" name="email" 
+                        @if(Cookie::has('userEmail'))
+                            value="{{Cookie::get('userEmail')}}"
+                        @endif>
                         <span class="text-danger">@error('email'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="password">
                             Password
                         </label>
-                        <input type="password" class="form-control" placeholder="Enter Password" name="password" value="">
+                        <input type="password" class="form-control" placeholder="Enter Password" name="password" 
+                        @if(Cookie::has('userPwd'))
+                            value="{{Cookie::get('userPwd')}}"
+                        @endif  >
                         <span class="text-danger">@error('password'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-check form-check-lg d-flex align-items-end">
+                        <input class="form-check-input me-2" type="checkbox" value="remember_me" id="remember_me" name="remember_me" 
+                        @if(Cookie::has('userEmail'))
+                            checked
+                        @endif 
+                        >
+                        <label class="form-check-label text-gray-600" for="flexCheckDefault">
+                            Keep me logged in
+                        </label>
                     </div>
                     <div class="form-group mt-3">
                         <button class="btn btn-block btn-primary" type="submit">Login</button>
