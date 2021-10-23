@@ -50,7 +50,7 @@ class CustomAuthController extends Controller
                     Cookie::queue('userEmail', $request->email, 60);
                     Cookie::queue('userPwd', $request->password, 60);
                 }
-                return redirect('dashboard');
+                return redirect('home');
             }else{
                 return back()->with('fail', 'Password not matches.');
             }
@@ -58,12 +58,12 @@ class CustomAuthController extends Controller
             return back()->with('fail','This email is not registered.');
         }
     }
-    public function dashboard(){
+    public function home(){
         $data = array();
         if(Session::has('loginId')){
             $data = User::where('id', '=', Session::get('loginId'))->first();
         }
-        return view('dashboard', compact('data'));
+        return view('home', compact('data'));
     }
     public function logout(){
         if(Session::has('loginId')){

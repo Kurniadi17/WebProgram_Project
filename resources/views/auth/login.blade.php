@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4" style="margin-top:20px;">
-                <h4>Registration</h4>
+</head> -->
+<body class="d-flex flex-column min-vh-100">
+    <!-- <section class="Form border" > -->
+    @extends('navbar')
+        <div class="container justify-content-center" style="margin-top:auto; margin-bottom:auto;" style="width:100%; height:100%">
+        <div class="row border">
+            <div class="col-md-5" style="background-image: url(/img/istockphoto-1293762741-170667a.jpg);">
+                <!-- <img src="{{url('/img/istockphoto-1293762741-170667a.jpg')}}" class="img-fluid w-100 h-100" alt="" > -->
+            </div>
+            <div class="col-md-7">
+                <h4>Login</h4>
                 <hr>
                 <form action="{{route('login-user')}}" method="post">
                     @if(Session::has('success'))
@@ -60,6 +65,8 @@
             </div>
         </div>
     </div>
+    <!-- </section> -->
 </body>
+@extends('footer')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymosus"></script>
 </html>
