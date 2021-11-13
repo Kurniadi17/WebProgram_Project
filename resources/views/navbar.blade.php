@@ -18,16 +18,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link page-scroll active" href="#">Home</a>
+              <a class="nav-link page-scroll active" href="home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll" href="#">View</a>
+              <a class="nav-link page-scroll" href="viewAdmin">View</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll" href="#">Product</a>
+              <a class="nav-link page-scroll" href="productAdmin">Product</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link page-scroll" href="#">Add Product</a>
+              <a class="nav-link page-scroll" href="addProduct">Add Product</a>
             </li>
             <li class="nav-item">
               <a class="nav-link page-scroll" href="logout">Logout</a>

@@ -24,49 +24,42 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">
-                            Full Name
+                            name
                         </label>
-                        <input type="text" class="form-control" placeholder="Enter Full Name" name="name" value="{{old('name')}}">
+                        <input type="text" class="form-control" placeholder="Enter furniture's name" name="name" value="{{old('name')}}">
                         <span class="text-danger">@error('name'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="email">
-                            Email
+                            price
                         </label>
-                        <input type="text" class="form-control" placeholder="Enter Email" name="email" value="{{old('email')}}">
+                        <input type="text" class="form-control" placeholder="Enter furniture's price" name="email" value="{{old('email')}}">
                         <span class="text-danger">@error('email'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="password">
-                            Password
+                            type
                         </label>
                         <input type="password" class="form-control" placeholder="Enter Password" name="password" value="">
                         <span class="text-danger">@error('password'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="address">
-                            Address
+                            color
                         </label>
                         <input type="text" class="form-control" placeholder="Enter your address" name="address" value="">
                         <span class="text-danger">@error('address'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="gender">
-                            Gender
-                        </label><br>
-                        <input type="radio" name="gender" value="Male">
-                        <label for="Male">Male</label>
-                        <br>
-                        <input type="radio" name="gender" value="Female">
-                        <label for="Female">Female</label>
-                        <br>
+                            image
+                        </label>
+                        <input type="text" class="form-control" placeholder="Enter your address" name="address" value="">
                         <span class="text-danger">@error('gender'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group mt-3">
-                        <button class="btn btn-block btn-primary" type="submit">Register</button>
+                        <button class="btn btn-block btn-primary" type="submit">Add Furniture</button>
                     </div>
-                    <br>
-                    <a href="login">Login Here!</a>
                 </form>
             </div>
         </div>

@@ -7,10 +7,15 @@
     <title>Authentication</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
+@extends('navbar')
 <body>
-    @extends('navbar')
-    <div class="d-flex justify-content-center" style="margin-top: 100px">
-        <p>Welcome, Admin to JH Furniture</p>
+    <div class="d-flex justify-content-center" style="margin-top: 100px" >
+        <h4>Welcome, Admin to JH Furniture</h4>
+    </div>
+    <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+        aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary">search</button>
     </div>
     <div class="d-flex justify-content-center align-items-center">
         <div class="card border border-primary m-4" style="width: 18rem;">

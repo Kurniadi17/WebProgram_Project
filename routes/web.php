@@ -22,7 +22,13 @@ Route::get('/login',[CustomAuthController::class,'login'])->middleware('alreadyL
 Route::get('/registration',[CustomAuthController::class,'registration'])->middleware('alreadyLoggedIn');
 Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name('register-user');
 Route::post('/login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
-Route::get('/home',[CustomAuthController::class, 'home'])->middleware('isLoggedIn');
 Route::get('/logout',[CustomAuthController::class, 'logout']);
 
+//admin
+Route::get('/home',[CustomAuthController::class, 'home'])->middleware('isLoggedIn');
+Route::get('/viewAdmin',[CustomAuthController::class, 'viewAdmin']);
+Route::get('/productAdmin',[CustomAuthController::class, 'productAdmin']);
+Route::get('/addProduct',[CustomAuthController::class, 'addProduct']);
+
+//Member
 Route::get('/member',[CustomAuthController::class, 'memberDashboard']); 

@@ -73,4 +73,13 @@ class CustomAuthController extends Controller
             return redirect('login');
         }
     }
+    public function viewAdmin(){
+        return view('viewAdmin');
+    }
+    public function productAdmin(){
+        return view('productAdmin');
+    }
+    public function addProduct(){
+        return view('addProduct');
+    }
 }
