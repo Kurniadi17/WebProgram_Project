@@ -29,6 +29,9 @@
             <li class="nav-item">
               <a class="nav-link page-scroll" href="#">Add Product</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="logout">Logout</a>
+            </li>
           </ul>
         </div>
       </div>

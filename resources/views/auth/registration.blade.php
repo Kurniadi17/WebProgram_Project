@@ -43,11 +43,23 @@
                         <span class="text-danger">@error('password'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <label for="password">
+                        <label for="address">
                             Address
                         </label>
                         <input type="text" class="form-control" placeholder="Enter your address" name="address" value="">
                         <span class="text-danger">@error('address'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">
+                            Gender
+                        </label><br>
+                        <input type="radio" name="gender" value="Male">
+                        <label for="Male">Male</label>
+                        <br>
+                        <input type="radio" name="gender" value="Female">
+                        <label for="Female">Female</label>
+                        <br>
+                        <span class="text-danger">@error('gender'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group mt-3">
                         <button class="btn btn-block btn-primary" type="submit">Register</button>
