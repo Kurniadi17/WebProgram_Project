@@ -31,4 +31,4 @@ Route::get('/productAdmin',[CustomAuthController::class, 'productAdmin']);
 Route::get('/addProduct',[CustomAuthController::class, 'addProduct']);
 
 //Member
-Route::get('/member',[CustomAuthController::class, 'memberDashboard']); 
+Route::get('/member',[CustomAuthController::class, 'memberDashboard']);

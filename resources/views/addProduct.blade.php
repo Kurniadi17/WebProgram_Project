@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" style="margin-top:100px;">
-                <h4>Registration</h4>
+                <h4>Add Furniture</h4>
                 <hr>
                 <form action="{{route('register-user')}}" method="post">
                     @if(Session::has('success'))
