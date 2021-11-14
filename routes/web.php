@@ -30,12 +30,12 @@ Route::get('/viewAdmin',[CustomAuthController::class, 'viewAdmin'])->middleware(
 Route::get('/productAdmin',[CustomAuthController::class, 'productAdmin'])->middleware('isLoggedIn');
 Route::get('/addProduct',[CustomAuthController::class, 'addProduct'])->middleware('isLoggedIn');
 
-//Member
+//member
 Route::get('/homeMember',[CustomAuthController::class, 'homeMember'])->middleware('isLoggedIn');
 Route::get('/viewMember',[CustomAuthController::class, 'viewMember'])->middleware('isLoggedIn');
 Route::get('/productMember',[CustomAuthController::class, 'productMember'])->middleware('isLoggedIn');
 
-//Guest
+//guest
 Route::get('/homeGuest',[CustomAuthController::class, 'homeGuest']);
 Route::get('/viewGuest',[CustomAuthController::class, 'viewGuest']);
 Route::get('/productGuest',[CustomAuthController::class, 'productGuest']);

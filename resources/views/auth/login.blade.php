@@ -9,7 +9,7 @@
 </head> -->
 <body class="d-flex flex-column min-vh-100">
     <!-- <section class="Form border" > -->
-    @extends('navbar')
+    @extends('navbarGuest')
         <div class="container justify-content-center" style="margin-top:auto; margin-bottom:auto;" style="width:100%; height:100%">
         <div class="row border">
             <div class="col-md-5" style="background-image: url(/img/istockphoto-1293762741-170667a.jpg);">
