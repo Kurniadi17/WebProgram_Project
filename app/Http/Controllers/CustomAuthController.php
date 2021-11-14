@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Product;
 use Hash;
 use Session;
 use Cookie;
@@ -99,5 +100,26 @@ class CustomAuthController extends Controller
     }
     public function productGuest(){
         return view('productGuest');
+    }
+    public function newProduct(Request $request){
+        $request->validate([
+            'name'=>'required|max:15',
+            'price'=>'required',
+            'type'=>'required',
+            'color'=>'required',
+            'image'=>'required'
+        ]);
+        $product = new Product();
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->type = $request->type;
+        $product->color = $request->color;
+        $product->image = $request->image;
+        $res = $product->save();
+        if ($res) {
+            return back()->with('success','You have add item successfully');
+        } else {
+            return back()->with('fail','Something wrong');
+        }
     }
 }

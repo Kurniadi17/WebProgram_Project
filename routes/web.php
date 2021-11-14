@@ -29,6 +29,7 @@ Route::get('/home',[CustomAuthController::class, 'home'])->middleware('isLoggedI
 Route::get('/viewAdmin',[CustomAuthController::class, 'viewAdmin'])->middleware('isLoggedIn');
 Route::get('/productAdmin',[CustomAuthController::class, 'productAdmin'])->middleware('isLoggedIn');
 Route::get('/addProduct',[CustomAuthController::class, 'addProduct'])->middleware('isLoggedIn');
+Route::post('/new-product',[CustomAuthController::class, 'newProduct'])->name('new-product');
 
 //member
 Route::get('/homeMember',[CustomAuthController::class, 'homeMember'])->middleware('isLoggedIn');
