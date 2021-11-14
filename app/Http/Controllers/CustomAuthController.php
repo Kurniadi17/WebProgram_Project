@@ -82,4 +82,22 @@ class CustomAuthController extends Controller
     public function addProduct(){
         return view('addProduct');
     }
+    public function homeMember(){
+        return view('homeMember');
+    }
+    public function viewMember(){
+        return view('viewMember');
+    }
+    public function productMember(){
+        return view('productMember');
+    }
+    public function homeGuest(){
+        return view('homeGuest');
+    }
+    public function viewGuest(){
+        return view('viewGuest');
+    }
+    public function productGuest(){
+        return view('productGuest');
+    }
 }
