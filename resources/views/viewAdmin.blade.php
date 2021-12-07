@@ -18,6 +18,21 @@
         <button type="button" class="btn btn-outline-primary">search</button>
     </div>
     <div class="d-flex justify-content-center align-items-center">
+         @foreach ($products as $product)
+         <div class="card border border-primary m-4" style="width: 18rem;">
+            <img src="{{ asset('img'. $product->name)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title text-center">{{$product->name}}</h5>
+                <p class="card-text text-center">Rp. 85.000</p>
+                <div class="d-flex justify-content-between">
+                    <a href="#" class="btn btn-primary">Update</a>
+                    <a href="#" class="btn btn-primary">Delete</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
+
         <div class="card border border-primary m-4" style="width: 18rem;">
             <img src="https://cdn.discordapp.com/attachments/896407128942727221/909101010658668646/0729767_PE737131_S4.jpg" class="card-img-top" alt="...">
             <div class="card-body">

@@ -107,19 +107,30 @@ class CustomAuthController extends Controller
             'price'=>'required',
             'type'=>'required',
             'color'=>'required',
-            'image'=>'required'
+            'image'=>'required|image|mimes:jpeg,png,jpg'
         ]);
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
         $product->type = $request->type;
         $product->color = $request->color;
-        $product->image = $request->image;
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('img',$filename);
+            $product->image = $filename;
+        }
         $res = $product->save();
         if ($res) {
             return back()->with('success','You have add item successfully');
         } else {
             return back()->with('fail','Something wrong');
         }
+    }
+    public function index(){
+        $products = Product::all(); 
+                
+        return view('viewAdmin', ['products' => $products]); 
     }
 }
