@@ -43,7 +43,6 @@
                             Image
                         </label>
                         <input type="file" class="form-control" placeholder="Enter your address" name="image" value="{{$prods->image}}">
-                        
                     </div>
                     <div class="form-group mt-3">
                         <button class="btn btn-block btn-primary" type="submit">Update</button>

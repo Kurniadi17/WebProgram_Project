@@ -1,14 +1,18 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Cart;
+
 class LoginController extends Controller
 {
     public function login(){
-        return view('login');
+        $user_id = Auth::id();
+        $count=cart::where('user_id',$user_id)->count();
+        return view('login', compact('count'));
     }
     public function createLogin(Request $request){
         $data = $request->validate([
@@ -37,12 +41,16 @@ class LoginController extends Controller
 
     public function profileDetail($id){
         $users = User::find($id);
-        return view('profile',['users'=>$users]);
+        $user_id = Auth::id();
+        $count=cart::where('user_id',$user_id)->count();
+        return view('profile',['users'=>$users], compact('count'));
     }
 
     public function oldProfile($id){
         $users = User::find($id);
-        return view ('updateProfile', ['users'=>$users]);
+        $user_id = Auth::id();
+        $count=cart::where('user_id',$user_id)->count();
+        return view ('updateProfile', ['users'=>$users], compact('count'));
     }
 
     public function updateProfile(Request $request, $id){

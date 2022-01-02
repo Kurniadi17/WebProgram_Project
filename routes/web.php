@@ -36,7 +36,10 @@ Route::post('/add-product',[ProductController::class,'store']);
 Route::get('/update/{id}',[ProductController::class,'getOldData']);
 Route::post('/update/{id}',[ProductController::class,'update']);
 
-
+Route::post('/addcart/{id}',[ProductController::class,'addcart']);
+Route::get('/showcart/{id}',[ProductController::class,'showcart']);
+Route::post('/increment/{id}',[ProductController::class,'increQuantity']);
+Route::post('/decrement/{id}',[ProductController::class,'decreQuantity']);
 
 Route::get('/delete/{id}',[ProductController::class,'delete']);
 Route::get('/detail/{id}',[ProductController::class,'detail']);
