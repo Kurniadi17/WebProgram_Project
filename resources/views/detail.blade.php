@@ -5,6 +5,11 @@
         <div class="mb-4">
             <h1 >Detail Furniture</h1>
         </div>
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         {{-- <img src="" alt=""> --}}
         <div class="m-2 p-3 border">
             <h2 class="text-center">{{$prods->name}}</h2>

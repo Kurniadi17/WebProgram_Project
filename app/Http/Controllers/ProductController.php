@@ -94,13 +94,11 @@ class ProductController extends Controller
         
     }
 
-    public function addcart(Request $request,$id){
-        $user_id = Auth::id();
-        $count=cart::where('user_id',$user_id)->count();
-
+    public function addcart($id){
         if(Auth::id()){
             $user_id = Auth::id();
             $furnitureid=$id;
+            dd($furnitureid);
 
             $cart= new cart;
 
@@ -110,7 +108,7 @@ class ProductController extends Controller
 
             $cart->save();
 
-            return redirect()->back();
+            return redirect()->back()->with('success',' Berhasil Tambah ke Keranjang');
         }
         else {
             return redirect('/login');
@@ -121,8 +119,8 @@ class ProductController extends Controller
         $user_id = Auth::id();
         $count=cart::where('user_id',$user_id)->count();
 
-        $cart=cart::where('user_id',$id)->join('products', 'carts.furniture_id', '=', 'products.id')->get();
-        return view('showcart', compact('count', 'cart'));
+        $carts=cart::where('user_id',$id)->join('products', 'carts.furniture_id', '=', 'products.id')->get();
+        return view('showcart', compact('count', 'carts'));
     }
     public function increQuantity(Request $request){
         $cart=cart::find($request->id);
