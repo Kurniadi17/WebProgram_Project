@@ -136,6 +136,10 @@ class ProductController extends Controller
             $cart->quantity-=1;
             $cart->save();
         }
+        else if($cart->quantity == 1){
+            $cart=cart::find($request->id);
+            $cart->delete();
+        }
         return redirect()->back();
     }
 }
