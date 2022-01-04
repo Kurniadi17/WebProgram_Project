@@ -12,16 +12,14 @@ use App\Models\Cart;
 class ProductController extends Controller
 {
     //
-    public function create()
-    {
+    public function create(){
         $user_id = Auth::id();
         $count=cart::where('user_id',$user_id)->count();
 
         return view('addProduct', compact('count'));
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $barang = $request->validate([
             'name' => 'required|max:15',
             'price' => 'required|numeric|min:6000|max:9999999',
@@ -36,10 +34,8 @@ class ProductController extends Controller
 
     public function home(){
         $prods = Product::get()->shuffle();
-
         $user_id = Auth::id();
         $count=cart::where('user_id',$user_id)->count();
-
         return view('home',['prods'=>$prods], compact('count'));
     }
 
@@ -65,33 +61,20 @@ class ProductController extends Controller
     }
 
     public function update(Request $request, $id){
-        // $prods = $request->validate([
-        //     'name' => 'required|max:15',
-        //     'price' => 'required|numeric|min:6000|max:9999999',
-        //     'type' => 'required',
-        //     'color' => 'required',
-        //     'image' =>  'required|image|mimes:jpeg,png,jpg'
-        //   ]);
-
           $prods = Product::find($id);
           $prods->name = $request->name;
           $prods->price = $request->price;
           $prods->type = $request->type;
           $prods->color = $request->color;
-        //   $brg->color = $request->input('name');
           $prods->image = $request->image= $request->file('image')->store('img');
           $prods->update();
           return back()->with('success','Product Successfully Updated');
     }
 
     public function delete($id){
-        $user_id = Auth::id();
-        $count=cart::where('user_id',$user_id)->count();
-
         $prods = Product::find($id);
         $prods->delete();
         return redirect('/')->with('success', 'Data successfully deleted!');
-        
     }
 
     public function addcart($id){
@@ -122,12 +105,14 @@ class ProductController extends Controller
         $carts=cart::where('user_id',$id)->join('products', 'carts.furniture_id', '=', 'products.id')->get();
         return view('showcart', compact('count', 'carts'));
     }
+
     public function increQuantity(Request $request){
         $cart=cart::find($request->id);
         $cart->quantity+=1;
         $cart->save();
         return redirect()->back();
     }
+
     public function decreQuantity(Request $request){
         $cart=cart::find($request->id);
         if($cart->quantity > 1){
@@ -139,5 +124,11 @@ class ProductController extends Controller
             $cart->delete();
         }
         return redirect()->back();
+    }
+
+    public function transactionHistory(Request $request, $id){
+        $user_id = Auth::id();
+        $count=cart::where('user_id',$user_id)->count();
+        return view('transactionHistory', compact('count'));
     }
 }

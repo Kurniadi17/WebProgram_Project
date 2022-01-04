@@ -20,7 +20,7 @@
                     </div>
                     @if(auth()->user()->role == 'admin')
                         <div class="p-5 d-flex justify-content-between">
-                            <a href="/update/{{$users->id}}" class="btn btn-primary">View All User's Transaction</a>
+                            <a href="/transactionHistory/{{$users->id}}" class="btn btn-primary">View All User's Transaction</a>
                             <a href="/profile-update/{{$users->id}}" class="btn btn-primary">Update Profile</a>
                             <a href="/logout" class="btn btn-primary">Logout</a>
                         </div>
@@ -34,7 +34,7 @@
                             </p>
                         </div>
                         <div class="p-5 d-flex justify-content-between">
-                            <a href="/update/{{$users->id}}" class="btn btn-primary">View Transaction History</a>
+                            <a href="/transactionHistory/{{$users->id}}" class="btn btn-primary">View Transaction History</a>
                             <a href="/profile-update/{{$users->id}}" class="btn btn-primary">Update Profile</a>
                             <a href="/logout" class="btn btn-primary">Logout</a>
                         </div>

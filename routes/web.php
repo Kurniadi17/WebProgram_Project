@@ -48,7 +48,7 @@ Route::get('/profile-detail/{id}',[LoginController::class,'profileDetail']);
 Route::get('/profile-update/{id}',[LoginController::class,'oldProfile']);
 Route::post('/profile-update/{id}',[LoginController::class,'updateProfile']);
 
-
+Route::get('/transactionHistory/{id}',[ProductController::class,'transactionHistory']);
 
 
 
